@@ -1,4 +1,9 @@
 <div class="col-xs-12">
   <h4>Email List</h4>
-  <p *ngFor="let current of emails"> {{ current.email }}</p>
+
+  <ul>
+    <li *ngFor="let current of emails; let i = index" (click)="onDelete(i)"> {{ current.email }}</li>
+
+  </ul>
+
 </div>
