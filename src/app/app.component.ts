@@ -7,6 +7,8 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  // View the local variable f in .html corresponding to this file.
+  // Local variable f is of type NgForm
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion = 'pet';
   answer = '';
@@ -20,23 +22,25 @@ export class AppComponent implements OnInit {
 
     const suggestedName = 'Superuser';
 
-    this.signupForm.setValue({
+    // Uset setValue() to set ALL values in form
+
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: '',
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male',
+    // });
+
+    // use patchValue() to set SPECIFIC values in form
+    this.signupForm.form.patchValue({
       userData: {
         username: suggestedName,
-        email: '',
       },
-      secret: 'pet',
-      questionAnswer: '',
-      gender: 'male',
     });
   }
-
-  // onSubmit(form: NgForm) {
-  //   // console.log('submitted!');
-  //   // console.log(form);
-  //   // console.log(form.value);
-  //   console.log('Username: ' + form.value.username + ' has submitted a form.');
-  // }
 
   onSubmit() {
 

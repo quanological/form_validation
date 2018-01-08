@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+     <!-- Bind the local variable f to ngForm -->
       <form (ngSubmit)="onSubmit(f)" #f="ngForm" required>
+        <!-- All data inside this div will be tied to an object called userData -->
+        <!-- Properties of this form can be accessed using userData, such as touched, dirty, etc -->
         <div
           id="user-data"
           ngModelGroup="userData"
