@@ -15,14 +15,20 @@
               ngModel name="username"
             required>
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="suggestUserName()"
+          >Suggest an Username
+          </button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input
               type="email"
               id="email"
               class="form-control"
-              ngModel name="email"
+              ngModel
+              name="email"
               required
               email
             #email="ngModel">
@@ -42,8 +48,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="input">Answer: </label>
-          <textarea id="input" name="input" rows="3" [(ngModel)]="answer" class="form-control"></textarea>
+          <label for="questionAnswer">Answer: </label>
+          <textarea id="questionAnswer" name="questionAnswer" rows="3" [(ngModel)]="answer" class="form-control"></textarea>
           <p *ngIf="!userData.valid && userData.touched">Your Answer: {{ answer }}</p>
         </div>
         <div class="form-group">
@@ -54,11 +60,10 @@
                 type="radio"
                 name="gender"
                 ngModel
-                [value]="gender">
+                [value]="gender"
+                required>
               {{gender}}
             </label>
-
-
           </div>
         </div>
         <button
@@ -66,6 +71,16 @@
           type="submit"
           [disabled]="!f.valid">Submit</button>
       </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Username: </p>
+      <p>Mail: </p>
+      <p>Secret Question: </p>
+      <p>Answer: </p>
+      <p>Gender: </p>
     </div>
   </div>
 </div>
